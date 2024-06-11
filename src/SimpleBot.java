@@ -23,14 +23,36 @@ public class SimpleBot {
         System.out.println("Your age is " + age + "; that's a good time to start programming!");
         System.out.println("Now I will prove to you that I can count to any number you want.");
 
-        // read a number and count to it here
-        int number = scanner.nextInt();
+        int integer = scanner.nextInt();
 
-        for (int i = 0; i <= number; i++) {
+        for (int i = 0; i <= integer; i++) {
             System.out.println(i + "!");
         }
 
-        System.out.println("Completed, have a nice day!");
+        System.out.println("Why do we use methods?");
+        String answerOptions = """
+                1. To repeat a statement multiple times.
+                2. To decompose a program into several small subroutines.
+                3. To determine the execution time of a program.
+                4. To interrupt the execution of a program.""";
+        System.out.println(answerOptions);
+
+        answerUser(1, 2, 3, 4);
+
+        scanner.close();
+    }
+
+    static void answerUser(int option1, int option2, int option3, int option4) {
+        Scanner scanner = new Scanner(System.in);
+        int userInput = scanner.nextInt();
+        System.out.println(userInput);
+
+        if (userInput == option2) {
+            System.out.println("Congratulations, have a nice day!");
+        } else {
+            System.out.println("Please try again.");
+            answerUser(option1, option2, option3, option4);
+        }
 
         scanner.close();
     }
